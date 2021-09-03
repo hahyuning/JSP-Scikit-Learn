@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+body {
+	background-color: black;
+	color: white;
+	font-size: large;
+}
+
+a {
+	color: white;
+}
+
+.hah img{
+   width:200px;
+   height:200px;
+  }
+  
+.hah img:hover{ /* img 마우스 오버시*/
+       cursor:pointer;
+
+       transform:scale(1.2); /* 마우스 오버시 이미지 크기를 1.1 배만큼 확대시킨다. */
+
+       -o-transform:scale(1.2); 
+       -moz-transform:scale(1.2);
+
+       -webkit-transform:scale(1.2);
+
+
+       transition: transform .35s;  
+       -o-transition: transform .35s;
+       -moz-transition: transform .35s;
+       -webkit-transition: transform .35s;
+    /* 마우스 오버시 이미지가 즉시 커지지않고 30.5 second 의 시간에 걸쳐 커진다 애니메이션 효과*/
+}
+#time {
+	color: yellow;
+	font-siz: 40px;
+	width: 100px;
+}
+
+#btn {
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+
+ 
+  }
+
+#btn {
+  background-color: rgb((255, 255, 255), 0, 0);
+  box-shadow: 0px 15px 20px rgba(255, 051, 051, 0.4);
+  color: rgb(0, 0, 0);
+  transform: translateY(-7px);
+}
+
+.wrap {
+	top : 17px;
+ 	right : 17px;
+	position : fixed;
+}
+
+.wrapLeft {
+	top : 17px;
+ 	left : 17px;
+	position : fixed;
+}

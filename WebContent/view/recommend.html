@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a:hover {
+	color: yellow;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../css/movie.css">
+<script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#text').keyup(function() {
+		var k = $(this).val() //텍스트 값 = k
+		$('#div').empty()
+		//json이 있는 주소로 ajax 통신하면 됨.
+		$.ajax({
+			url : '../data/movie_info3.json', //json파일 연결
+			dataType : 'json',
+			success: function(doc) {
+				$(doc).each(function(i,movie) {//for_each문으로 전체 검색
+					movie_name = movie.영화명		//json 파일 중 영화명 
+					movie_img = movie.url		// 이미지 주소
+					movie_genre = movie.장르		// 영화 장르
+					if(movie_name.indexOf(k) != -1){ // 영화명 중 #text 입력값이 포함되어 있다면 -> 영화 이름의 공백을 없애주고 쉼표로 바꿔주는 작업
+						movie_name2 = ''			//	비어있는 리스트 생성.
+						split_list = movie_name.split(' '); //영화이름 공백 없애기. ex)정직한 후보 ->list=["정직한","후보"]
+						
+						if(split_list.length > 1){			//리스트의 개수가 1 이상일때 실행
+							for (var i = 0; i < split_list.length-1; i++) {
+							movie_name2 =movie_name2 +split_list[i] + "," //공백을 없앤 뒤 쉼표로 바꿔서 붙여준다. ex) ["정직한","후보"] ->["정직한,후보,"]
+							}movie_name2=movie_name2+split_list[split_list.length-1]	//마지막 배열의 값은 그냥 더해준다 . ex)["지푸라기라도","잡고","싶은","짐승들"]->["지푸라기라도,잡고,싶은,짐승들"]
+						}else if(split_list.length == 1){
+							movie_name2 =movie_name2 +movie_name
+						} 
+						$('#div').append("<a href=MovieChoice.jsp?mnam="+movie_name2+"&mul="+movie_img+"&gen="+movie_genre+">"+"<img width=100 src=" +movie_img +"></a>")
+					}
+				})			
+				
+			}
+		})
+	})
+})
+</script>
+</head>
+<body bgcolor="#000000">
+
+
+
+	<div class="wrapLeft">
+		<img src="../css/넷플렉스.png" width="150" height="80">
+	</div>
+
+
+	<div class="wrap">
+		<table style="background-color: black">
+			<!-- <h3> -->
+			<button id="btn" onclick="location.href='main.jsp'">메인</button>
+			<button id="btn" onclick="location.href='recommend.html'">검색</button>
+			<button id="btn" onclick="location.href='movieRank.jsp'">전체영화순위</button>
+			<button id="btn" onclick="location.href='newmovie.jsp'">개봉예정</button>
+			<button id="btn" onclick="location.href='logout.jsp'">로그아웃</button>
+			
+			<!-- </h3> -->
+		</table>
+	</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="color:white;font-size: 20px;">  검색    </span><input id = 'text' type="search" placeholder="검색할 단어">
+<hr color="red">
+<div id='div'></div>
+</body>
+</html>

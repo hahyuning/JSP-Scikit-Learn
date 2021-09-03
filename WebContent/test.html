@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var client_id = 'gNZZc_mJ0AM3Jr43YbLw';
+		var client_secret = 'CsZQMYqdMd';
+		var strText = "테스트입니다.";
+		
+		$("button").click(function() {
+			$.ajax({
+				url : 'https://openapi.naver.com/v1/search/movie.json',
+				headers : {
+					'Content-Type' : 'application/x-www-form-urlencoded',
+					'X-Naver-Client-Id' : client_id,
+					'X-Naver-Client-Secret' : client_secret
+				},
+				type : 'json',
+				data : {
+					query : "꽃",
+					display : 5
+				},
+				success : function(doc) {
+					console.log('연결 성공' + doc)
+				}
+			}) //ajax
+		}) //click 
+	})
+</script>
+</head>
+<body>
+
+	<button id='button'>버튼</button>
+	<div id='d1'></div>
+
+</body>
+</html>

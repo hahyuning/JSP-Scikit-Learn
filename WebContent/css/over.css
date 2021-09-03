@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+
+  
+/* .shadow img:hover */
+.mImg img:hover{ /* img 마우스 오버시*/
+		
+	   width:200px;
+   	   height:200px;
+       cursor:pointer;
+
+       transform:scale(1.1); /* 마우스 오버시 이미지 크기를 1.1 배만큼 확대시킨다. */
+
+       -o-transform:scale(1.1); 
+       -moz-transform:scale(1.1);
+
+       -webkit-transform:scale(1.1);
+
+
+       transition: transform .35s;  
+       -o-transition: transform .35s;
+       -moz-transition: transform .35s;
+       -webkit-transition: transform .35s;
+    /* 마우스 오버시 이미지가 즉시 커지지않고 30.5 second 의 시간에 걸쳐 커진다 애니메이션 효과*/
+  }
+  
+  
+#mainButton {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+
+    color: #FFFFFF;
+}
+
+#btUpdate {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+
+    color: #FFFFFF;
+}
+.cate {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+
+.btcheck {
+	margin : 10px 20px 0px 0px ;
+	float : center; /* 클래스 오른쪽 */
+	position: relative;
+    right: -75%; 
+}
+#btcheck {
+	
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb((255, 255, 255), 0, 0);
+  box-shadow: 0px 15px 20px rgba(255, 051, 051, 0.4);
+  color: rgb(0, 0, 0);
+  transform: translateY(-7px);
+  margin-right : 20px ;
+	
+}
+
+#btn {
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+
+ 
+  }
+
+#btn {
+  background-color: rgb((255, 255, 255), 0, 0);
+  box-shadow: 0px 15px 20px rgba(255, 051, 051, 0.4);
+  color: rgb(0, 0, 0);
+  transform: translateY(-7px);
+}
+
+.wrapLeft {
+	top : 17px;
+ 	left : 17px;
+	position : fixed;
+}
+
+.wrap {
+	top : 17px;
+ 	right : 17px;
+	position : fixed;
+}
+
+#hrs {
+	color : red;
+	background-color: rgb((255, 255, 255), 0, 0);
+}
+.font {
+  font-family: 'Roboto', sans-serif;
+  font-size: 23px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+#div {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+/* #2EE59D; 민트색  position : fixed;  */

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/css.css" /> <!--수정함  -->
+<script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#b_id").click(function() {
+			check = 0 
+			$.ajax({
+				url : "../controller/signInController.jsp",
+				data : {
+					id : $("#id").val()
+				},
+				success : function(result) {
+					if (result == 0) {
+						$("#div_id").text("사용 가능한 아이디입니다")
+						$("#b_id").attr("disabled", true)
+						check = 1
+					} else {
+						$("#div_id").text("이미 사용중인 아이디입니다")
+					}
+				}
+			})
+			
+		})
+		$("#pw").keyup(function() {
+			if ($("#pw").val().length < 8) {
+				$("#div_pw").text("비밀번호는 8글자 이상 입력하세요")
+			} else {
+				$("#div_pw").text("")
+			}
+		})
+		$("#pw2").keyup(function() {
+			if ($("#pw").val() == $("#pw2").val()) {
+				$("#div_pw2").text("비밀번호가 일치합니다")
+			} else {
+				$("#div_pw2").text("비밀번호가 일치하지 않습니다")
+			}
+		})
+		$("#b_signIn").click(function() {
+			console.log(check)
+			if (check == 1 && $("#pw").val().length >= 8 && $("#pw").val() == $("#pw2").val()) {
+				$.ajax({
+					url : "../controller/signInController2.jsp",
+					data : {
+						id : $("#id").val(),
+						pw : $("#pw").val(),
+						membership : $("input:radio[name='membership']:checked").val()
+					},
+					success : function(result) {
+						alert("회원가입 되었습니다")
+						$("#id").val("")
+						$("#pw").val("")
+						$("#pw2").val("")
+					}
+				})
+			} else {
+				alert("입력하신 아이디와 비밀번호를 다시 확인해주세요")
+			}
+		})
+	})
+</script>
+</head>
+<body align="center">
+	<div class="wrapLeft">
+		<img src="../css/넷플렉스.png" width="150" height="80">
+	</div>
+	<h1 align="center">회원가입</h1>
+	아이디:
+	<input type="text" name="id" id="id">
+	<button id="b_id">중복 확인</button>
+	<div style="color: white;" id="div_id"></div>
+	<br> 비밀번호:
+	<input type="text" name="pw" id="pw">
+	<br>
+	<div style="color: white;" id="div_pw"></div>
+	<br> 비밀번호 확인:
+	<input type="text" name="pw2" id="pw2">
+	<br>
+	<div style="color: white;" id="div_pw2"></div>
+	<br> 멤버십 선택:
+	<input type="radio" id="membership" name="membership" value="1"
+		checked="checked">베이직 (계정 1개 사용 가능) \9900
+	<br>
+	<input type="radio" id="membership" name="membership" value="2">스탠다드
+	(계정 2개 사용 가능) \10900
+	<br>
+	<input type="radio" id="membership" name="membership" value="3">프리미엄
+	(계정 3개 사용 가능) \11900
+	<br><br><div style="color: yellow;">
+	입금 계좌 : 우리은행 1002-048-084385  예금주 이하현
+	<br>
+	입금 확인시 가입 처리됨</div><br>
+	<input type="button" id="b_signIn" value="회원가입">
+	<br>
+	<br>
+	<a href="logIn.html">로그인 페이지로 돌아가기</a>
+</body>
+</html>
