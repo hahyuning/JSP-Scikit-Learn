@@ -13,7 +13,7 @@
 + Ajax
 + JQuery
 + Python
-+ BeutifulSuop
++ Selenium
 + Scikit-Learn
 <br>
 
